@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/main/TempMain.gd" type="Script" id=1]
+[ext_resource path="res://scenes/minigames/mediamarkkinointi/MediaMarkkinointi.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/meta/mainosmyynti/Mainosmyynti.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/minigames/tekniikka/Tekniikka.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/minigames/sisalto/Sisalto.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/endgame/Endgame.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/minigames/tiladeco/TilaDeco.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/minigames/huolto/Huolto.tscn" type="PackedScene" id=8]
+
+[node name="TempMain" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+Mainosmyynti = ExtResource( 3 )
+Tekniikka = ExtResource( 4 )
+MediaMarkkinointi = ExtResource( 2 )
+Huolto = ExtResource( 8 )
+Sisalto = ExtResource( 5 )
+TilaDeco = ExtResource( 7 )
+EndGame = ExtResource( 6 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 344.0
+margin_top = 30.0
+margin_right = -305.0
+margin_bottom = -16.0
+
+[node name="label" type="Label" parent="Menu"]
+margin_right = 375.0
+margin_bottom = 14.0
+text = "Valitse peli :D"
+align = 1
+
+[node name="Mainosmyynti" type="Button" parent="Menu"]
+margin_top = 18.0
+margin_right = 375.0
+margin_bottom = 38.0
+text = "Mainosmyynti"
+
+[node name="HSeparator2" type="HSeparator" parent="Menu"]
+margin_top = 42.0
+margin_right = 375.0
+margin_bottom = 46.0
+
+[node name="Tekniikka" type="Button" parent="Menu"]
+margin_top = 50.0
+margin_right = 375.0
+margin_bottom = 70.0
+text = "Tekniikka"
+
+[node name="MediaMarkkinointi" type="Button" parent="Menu"]
+margin_top = 74.0
+margin_right = 375.0
+margin_bottom = 94.0
+text = "Media & Markkinointi"
+
+[node name="Huolto" type="Button" parent="Menu"]
+margin_top = 98.0
+margin_right = 375.0
+margin_bottom = 118.0
+text = "Huolto"
+
+[node name="Sisalto" type="Button" parent="Menu"]
+margin_top = 122.0
+margin_right = 375.0
+margin_bottom = 142.0
+text = "Sisältö"
+
+[node name="TilaDeco" type="Button" parent="Menu"]
+margin_top = 146.0
+margin_right = 375.0
+margin_bottom = 166.0
+text = "Tila & Deco"
+
+[node name="HSeparator" type="HSeparator" parent="Menu"]
+margin_top = 170.0
+margin_right = 375.0
+margin_bottom = 174.0
+
+[node name="Endgame" type="Button" parent="Menu"]
+margin_top = 178.0
+margin_right = 375.0
+margin_bottom = 198.0
+text = "Endgame"
+
+[connection signal="pressed" from="Menu/Mainosmyynti" to="." method="_on_Mainosmyynti_pressed"]
+[connection signal="pressed" from="Menu/Tekniikka" to="." method="_on_Tekniikka_pressed"]
+[connection signal="pressed" from="Menu/MediaMarkkinointi" to="." method="_on_MediaMarkkinointi_pressed"]
+[connection signal="pressed" from="Menu/Huolto" to="." method="_on_Huolto_pressed"]
+[connection signal="pressed" from="Menu/Sisalto" to="." method="_on_Sisalto_pressed"]
+[connection signal="pressed" from="Menu/TilaDeco" to="." method="_on_TilaDeco_pressed"]
+[connection signal="pressed" from="Menu/Endgame" to="." method="_on_Endgame_pressed"]
