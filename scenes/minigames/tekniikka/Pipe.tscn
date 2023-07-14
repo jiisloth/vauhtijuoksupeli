@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/minigames/tekniikka/Pipe.gd" type="Script" id=1]
+
+[node name="Pipe" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Lines" type="Node2D" parent="."]
+
+[node name="Up" type="Line2D" parent="Lines"]
+rotation = -1.5708
+points = PoolVector2Array( 0, 0, 0, 0 )
+default_color = Color( 0, 0, 0, 1 )
+end_cap_mode = 2
+
+[node name="Fill" type="Line2D" parent="Lines/Up"]
+z_index = 2
+points = PoolVector2Array( 0, 0, 0, 0 )
+default_color = Color( 0, 0.180392, 1, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Left" type="Line2D" parent="Lines"]
+rotation = 3.14159
+points = PoolVector2Array( 0, 0, 0, 0 )
+default_color = Color( 0, 0, 0, 1 )
+end_cap_mode = 2
+
+[node name="Fill" type="Line2D" parent="Lines/Left"]
+z_index = 2
+points = PoolVector2Array( 0, 0, 0, 0 )
+default_color = Color( 0, 0.180392, 1, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Down" type="Line2D" parent="Lines"]
+rotation = 1.5708
+points = PoolVector2Array( 0, 0, 0, 0 )
+default_color = Color( 0, 0, 0, 1 )
+end_cap_mode = 2
+
+[node name="Fill" type="Line2D" parent="Lines/Down"]
+z_index = 2
+points = PoolVector2Array( 0, 0, 0, 0 )
+default_color = Color( 0, 0.180392, 1, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Right" type="Line2D" parent="Lines"]
+points = PoolVector2Array( 0, 0, 0, 0 )
+default_color = Color( 0, 0, 0, 1 )
+end_cap_mode = 2
+
+[node name="Fill" type="Line2D" parent="Lines/Right"]
+z_index = 2
+points = PoolVector2Array( 0, 0, 0, 0 )
+default_color = Color( 0, 0.180392, 1, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Clickker" type="ColorRect" parent="."]
+color = Color( 1, 1, 1, 0 )
+
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="gui_input" from="Clickker" to="." method="_on_Clickker_gui_input"]
+[connection signal="mouse_entered" from="Clickker" to="." method="_on_Clickker_mouse_entered"]
+[connection signal="mouse_exited" from="Clickker" to="." method="_on_Clickker_mouse_exited"]

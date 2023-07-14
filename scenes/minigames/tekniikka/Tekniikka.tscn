@@ -1,4 +1,7 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/minigames/tekniikka/Pipes.gd" type="Script" id=1]
+[ext_resource path="res://scenes/minigames/tekniikka/Pipe.tscn" type="PackedScene" id=2]
 
 [node name="Tekniikka" type="Node2D"]
 
@@ -6,3 +9,15 @@
 margin_right = 40.0
 margin_bottom = 14.0
 text = "Tekniikan putkipeli"
+
+[node name="Pipes" type="Node2D" parent="."]
+script = ExtResource( 1 )
+Pipe = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="Pipes"]
+wait_time = 5.0
+autostart = true
+
+[node name="PipeHolder" type="Node2D" parent="Pipes"]
+
+[connection signal="timeout" from="Pipes/Timer" to="Pipes" method="_on_Timer_timeout"]
